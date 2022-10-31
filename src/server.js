@@ -23,6 +23,7 @@ routerProductos.get("/", (req, res) => {
 
 routerProductos.get("/:id", (req, res) => {
   let producto = productos.getById(req.params.id);
+
   if (producto) res.json(producto);
   else res.json({ error: "Producto no encontrado" }).status(404);
 });
@@ -47,12 +48,3 @@ routerProductos.delete("/:id", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
-
-/*
-GET '/api/productos' -> devuelve todos los productos.
-● GET '/api/productos/:id' -> devuelve un producto según su id.
-● POST '/api/productos' -> recibe y agrega un producto, y lo devuelve con su id
-asignado.
-● PUT '/api/productos/:id' -> recibe y actualiza un producto según su id.
-● DELETE '/api/productos/:id' -> elimina un producto según su id
-*/

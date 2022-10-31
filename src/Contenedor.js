@@ -15,7 +15,7 @@ class Contenedor {
 
     this.products.push(product);
 
-    return product.id;
+    return product;
   }
 
   update(id, product) {
