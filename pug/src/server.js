@@ -8,13 +8,20 @@ const app = express();
 const routerProductos = Router();
 const productos = new Contenedor();
 
+app.set('views', './views');
+app.set('view engine', 'pug');
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../public")));
 app.use("/api/productos", routerProductos);
 
 app.get("/", (req, res) => {
-  res.send("index.html");
+  res.render("carga");
+});
+
+app.get("/productos", (req, res) => {
+  const listado = productos.getAll();
+  res.render("listado", { productos: listado, noVacio: listado.length > 0 });
 });
 
 routerProductos.get("/", (req, res) => {
@@ -29,8 +36,8 @@ routerProductos.get("/:id", (req, res) => {
 });
 
 routerProductos.post("/", (req, res) => {
-  const id = productos.save(req.body);
-  res.json(id);
+  productos.save(req.body);
+  res.redirect("/productos");
 });
 
 routerProductos.put("/:id", (req, res) => {

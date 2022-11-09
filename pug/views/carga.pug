@@ -1,0 +1,18 @@
+extends layout
+
+block contenido
+    h3.text-center Nuevo producto
+    .d-grid.gap-2.d-md-flex.justify-content-md-end
+        a.btn.btn-primary(href='/productos' role='button') Ir al listado
+    form(method='post' action='/api/productos')
+        .mb-3
+            label.form-label(for='title') T&iacute;tulo
+            input#title.form-control(type='text' name='title')
+        .mb-3
+            label.form-label(for='price') Precio
+            input#price.form-control(type='text' name='price')
+        .mb-3
+            label.form-label(for='thumbnail') Thumbnail
+            input#thumbnail.form-control(type='text' name='thumbnail')
+        button.btn.btn-secondary(type='reset') Limpiar
+        button.btn.btn-primary(type='submit') Guardar

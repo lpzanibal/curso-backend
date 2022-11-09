@@ -1,0 +1,26 @@
+extends layout
+
+block contenido
+
+    h3.text-center Listado de productos
+    .d-grid.gap-2.d-md-flex.justify-content-md-end
+        a.btn.btn-primary(href='/' role='button') Ir a la carga
+    br
+    if noVacio
+        table.table
+            thead
+                tr
+                    th(scope='col') T&iacute;tulo
+                    th(scope='col') Precio
+                    th(scope='col') Imagen
+            tbody
+                each val in productos
+                    tr
+                        td= val.title
+                        td= val.price
+                        td
+                            img(src=val.thumbnail title=val.title)
+    else
+        .alert.alert-secondary(role='alert')
+            |No hay productos
+
