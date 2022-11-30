@@ -1,4 +1,4 @@
-class Contenedor {
+class ContenedorMemoria {
   constructor() {
     this.products = [];
   }
@@ -47,4 +47,4 @@ class Contenedor {
   }
 }
 
-module.exports = Contenedor;
+module.exports = ContenedorMemoria;

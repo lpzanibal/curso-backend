@@ -1,0 +1,56 @@
+<h3 class="text-center">Nuevo producto</h3>
+<!--<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a href="/productos" class="btn btn-primary" role="button">Ir al listado</a>
+</div>-->
+<form id="form-producto">
+    <div class="mb-3">
+        <label for="title" class="form-label">Título</label>
+        <input type="text" class="form-control" id="title" name="title">
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Precio</label>
+        <input type="text" class="form-control" id="price" name="price">
+    </div>
+    <div class="mb-3">
+        <label for="thumbnail" class="form-label">Thumbnail</label>
+        <input type="text" class="form-control" id="thumbnail" name="thumbnail">
+    </div>
+    <button type="reset" class="btn btn-secondary">Limpiar</button>
+    <button type="submit" class="btn btn-primary" id="boton-enviar">Guardar</button>
+</form>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Título</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Imagen</th>
+        </tr>
+    </thead>
+    <tbody id="body-productos">
+        {{#each productos}}
+        <tr>
+            <td>{{title}}</td>
+            <td>{{price}}</td>
+            <td><img src="{{thumbnail}}" title="{{title }}" /></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<br>
+<br>
+<h4>Mensajes</h4>
+<div class="row">
+    <div class="col-2">
+        <input id="email" type="text" placeholder="E-mail"><br>
+    </div>
+    <div class="col-2">
+        <input id="mensaje" type="text" placeholder="Mensaje"><br>
+    </div>
+    <div class="col-1">
+        <button id="botonEnviar" class="btn btn-primary">Enviar</button>
+    </div>
+</div>
+
+<div id="mensajes"></div>

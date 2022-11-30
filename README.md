@@ -17,6 +17,10 @@ npm install
 Inicializar
 
 ```sh
+Para crear las tablas:
+node tablas.js
+
+Para correr el proyecto
 npm start
 ```
 
